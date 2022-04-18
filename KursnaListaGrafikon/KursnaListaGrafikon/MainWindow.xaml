@@ -4,13 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KursnaListaGrafikon"
-        
-        
-        
-        
-             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow">
+        Title="MainWindow" d:DesignHeight="600" d:DesignWidth="1000">
     <Window.Resources>
         <Style TargetType="ToggleButton">
             <Setter Property="Background" Value="Transparent" />
@@ -42,7 +38,8 @@
         Background="#16262e" 
         VerticalAlignment="Stretch" 
         Height="Auto"
-        x:Name="DockMain">
+        x:Name="DockMain"
+        LastChildFill="True">
 
         <Grid DockPanel.Dock="Top" HorizontalAlignment="Stretch" MaxWidth="1920">
             <Grid.ColumnDefinitions>
@@ -71,67 +68,56 @@
             </WrapPanel>
         </Grid>
 
-        <Grid Width="443">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
 
-
-
-            <Grid Grid.Column="0">
-
-                <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" Margin="172,10,-172,-10" >
-                    <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-                    </lvc:CartesianChart.AxisY>
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
-                    </lvc:CartesianChart.AxisX>
-                </lvc:CartesianChart>
-            </Grid>
-            <Grid Grid.Column="1" Margin="10,0,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="9*"/>
-                    <RowDefinition Height="183*"/>
-                    <RowDefinition Height="161*"/>
-                </Grid.RowDefinitions>
-                <!--Chart2-->
-            </Grid>
-        </Grid>
-
-        <DockPanel HorizontalAlignment="Stretch" 
-                   VerticalAlignment="Stretch" 
-                   Height="Auto" 
-                   MinWidth="400"
-                   Margin="10"
-                   DockPanel.Dock="Bottom" >
-
-            <Grid DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="15">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <RadioButton Grid.Column="0">U toku dana</RadioButton>
-                <RadioButton Grid.Column="1">Dan</RadioButton>
-                <RadioButton Grid.Column="2">Mesec</RadioButton>
-                <RadioButton Grid.Column="3">Nedelja</RadioButton>
-            </Grid>
-
-            <Button DockPanel.Dock="Right"
-                    Margin="10" 
+        <Grid DockPanel.Dock="Right">
+            <Button 
+                    Margin="15" 
                     Padding="5" 
                     Width="Auto" 
                     Height="Auto" 
-                    HorizontalAlignment="Right" 
                     VerticalAlignment="Bottom"
                     Click="Button_Click">Tabela</Button>
+        </Grid>
 
-        </DockPanel>
+
+        <Grid DockPanel.Dock="Bottom" HorizontalAlignment="Left" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="0">U toku dana</RadioButton>
+            <RadioButton Grid.Column="1">Dan</RadioButton>
+            <RadioButton Grid.Column="2">Mesec</RadioButton>
+            <RadioButton Grid.Column="3">Nedelja</RadioButton>
+        </Grid>
+
+
+
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <lvc:CartesianChart Grid.Column="0" Series="{Binding SeriesCollection}" LegendLocation="None" Margin="10,0,-460,20" >
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+            <lvc:CartesianChart Series="{Binding SeriesCollection2}" Margin="531,-14,-968,14" Grid.Column="1">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Labels="{Binding Labels2}"/>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        </Grid>
+
+
+
     </DockPanel>
 </Window>
