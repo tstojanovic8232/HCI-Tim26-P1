@@ -16,3 +16,27 @@ D:\Personal\School\Fakultet\New folder\HCI\P1\HCI-Tim26-P1\KursnaListaGrafikon\K
 D:\Personal\School\Fakultet\New folder\HCI\P1\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.CoreCompileInputs.cache
 D:\Personal\School\Fakultet\New folder\HCI\P1\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.exe
 D:\Personal\School\Fakultet\New folder\HCI\P1\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.pdb
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csprojAssemblyReference.cache
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\TableWindow.g.cs
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\App.g.cs
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon_MarkupCompile.cache
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon_MarkupCompile.lref
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.exe
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.pdb
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\KursnaListaGrafikon.exe.config
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\KursnaListaGrafikon.exe
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\KursnaListaGrafikon.pdb
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.dll
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.pdb
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.xml
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\MainWindow.g.cs
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\MainWindow.baml
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\TableWindow.baml
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.g.resources
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.Properties.Resources.resources
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.GenerateResource.cache
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.CoreCompileInputs.cache
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.CopyComplete
