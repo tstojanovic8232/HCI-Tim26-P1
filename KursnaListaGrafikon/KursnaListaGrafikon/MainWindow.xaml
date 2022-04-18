@@ -1,0 +1,117 @@
+﻿<Window x:Class="KursnaListaGrafikon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KursnaListaGrafikon"
+        mc:Ignorable="d"
+        Title="MainWindow">
+    <Window.Resources>
+        <Style TargetType="ToggleButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#e9d9d1" />
+            <Setter Property="BorderBrush" Value="#586570" />
+            <Setter Property="FontFamily" Value="Garamond" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="20" />
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#e9d9d1" />
+                    <Setter Property="Foreground" Value="#16262e" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#e9d9d1" />
+                    <Setter Property="Foreground" Value="#16262e" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#e9d9d1" />
+            <Setter Property="FontFamily" Value="Garamond" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </Window.Resources>
+    <DockPanel 
+        Background="#16262e" 
+        VerticalAlignment="Stretch" 
+        Height="Auto"
+        x:Name="DockMain">
+
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Stretch" MaxWidth="1920">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2">
+                <ToggleButton>RSD</ToggleButton>
+                <ToggleButton>USD</ToggleButton>
+                <ToggleButton>EUR</ToggleButton>
+                <ToggleButton>JPY</ToggleButton>
+                <ToggleButton>CHF</ToggleButton>
+            </WrapPanel>
+            <TextBlock Foreground="#e9d9d1" FontSize="20" HorizontalAlignment="Center" Grid.Row="1"></TextBlock>
+            <WrapPanel Name="SingleToggle" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                <ToggleButton>RSD</ToggleButton>
+                <ToggleButton>USD</ToggleButton>
+                <ToggleButton>EUR</ToggleButton>
+                <ToggleButton>JPY</ToggleButton>
+                <ToggleButton>CHF</ToggleButton>
+            </WrapPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Canvas Grid.Column="0">
+                <!--Chart1-->
+            </Canvas>
+            <Canvas Grid.Column="1">
+                <!--Chart2-->
+            </Canvas>
+        </Grid>
+
+        <DockPanel HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Stretch" 
+                   Height="Auto" 
+                   MinWidth="400"
+                   Margin="10"
+                   DockPanel.Dock="Bottom" >
+
+            <Grid DockPanel.Dock="Left" VerticalAlignment="Bottom" Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <RadioButton Grid.Column="0">U toku dana</RadioButton>
+                <RadioButton Grid.Column="1">Dan</RadioButton>
+                <RadioButton Grid.Column="2">Mesec</RadioButton>
+                <RadioButton Grid.Column="3">Nedelja</RadioButton>
+            </Grid>
+            
+            <Button DockPanel.Dock="Right"
+                    Margin="10" 
+                    Padding="5" 
+                    Width="Auto" 
+                    Height="Auto" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Bottom"
+                    Click="Button_Click">Tabela</Button>
+
+        </DockPanel>
+    </DockPanel>
+</Window>
