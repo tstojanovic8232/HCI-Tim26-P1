@@ -16,6 +16,8 @@ using System.Threading;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using System.Web.Script.Serialization;
+using System.Net;
 
 namespace KursnaListaGrafikon
 {
@@ -38,7 +40,20 @@ namespace KursnaListaGrafikon
         {
             
             InitializeComponent();
+            // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+            string QUERY_URL = "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=JPY&apikey=demo";
+            Uri queryUri = new Uri(QUERY_URL);
 
+            using (WebClient client = new WebClient())
+            {
+                // -------------------------------------------------------------------------
+                // if using .NET Framework (System.Web.Script.Serialization)
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                dynamic json_data = js.Deserialize(client.DownloadString(queryUri), typeof(List));
+              
+                Console.WriteLine(json_data);
+            }
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
