@@ -40,20 +40,7 @@ namespace KursnaListaGrafikon
         {
             
             InitializeComponent();
-            // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-            string QUERY_URL = "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=JPY&apikey=demo";
-            Uri queryUri = new Uri(QUERY_URL);
 
-            using (WebClient client = new WebClient())
-            {
-                // -------------------------------------------------------------------------
-                // if using .NET Framework (System.Web.Script.Serialization)
-
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                dynamic json_data = js.Deserialize(client.DownloadString(queryUri), typeof(List));
-              
-                Console.WriteLine(json_data);
-            }
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -72,14 +59,12 @@ namespace KursnaListaGrafikon
         Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
             YFormatter = value => value.ToString("C");
 
-            //modifying the series collection will animate and update the chart
             SeriesCollection.Add(new LineSeries
             {
                 Values = new ChartValues<double> { 5, 3, 2, 4 },
-                LineSmoothness = 0 //straight lines, 1 really smooth lines
+                LineSmoothness = 0 
             });
 
-            //modifying any series values will also animate and update the chart
             SeriesCollection[2].Values.Add(5d);
 
             SeriesCollection2 = new SeriesCollection
@@ -117,12 +102,6 @@ namespace KursnaListaGrafikon
                 }
             };
 
-            //based on https://github.com/beto-rodriguez/Live-Charts/issues/166 
-            //The Ohcl point X property is zero based indexed.
-            //this means the first point is 0, second 1, third 2.... and so on
-            //then you can use the Axis.Labels properties to map the chart X with a label in the array.
-            //for more info see (mapped labels section) 
-            //http://lvcharts.net/#/examples/v1/labels-wpf?path=WPF-Components-Labels
 
             Labels2 = new[]
             {
@@ -136,12 +115,24 @@ namespace KursnaListaGrafikon
 
             DataContext = this;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TableBtn_Click(object sender, RoutedEventArgs e)
         {
             var s = new TableWindow();
-            s.ShowDialog();
+            s.Show();
         }
 
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Intraday_Checked(object sender, RoutedEventArgs e)
+        {
+            //Pokaži Radio buttons za 1min, 5min, 15min, 30min
+            //TODO
+
+            RadioButton_Checked(sender, e);
+        }
     }
     //API key: M4HJM8TSKJCPJ1WA
 }

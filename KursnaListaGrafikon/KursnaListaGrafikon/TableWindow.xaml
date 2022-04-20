@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="TableWindow" Height="450" Width="800">
     <Window.Resources>
+        <!-- Style za DataGrid -->
         <Style TargetType="DataGrid">
             <Setter Property="Margin" Value="10" />
             <Setter Property="Background" Value="Transparent" />
@@ -16,6 +17,7 @@
         </Style>
     </Window.Resources>
     <Grid Background="#16262e">
+        <!-- Tabela kojoj je Binding kolekcija sa podacima (Dictionary, List, šta god) -->
         <DataGrid DataContext="{Binding Path=''}">
 
         </DataGrid>

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
-// -------------------------------------------------------------------------
-// if using .NET Framework
-// https://docs.microsoft.com/en-us/dotnet/api/system.web.script.serialization.javascriptserializer?view=netframework-4.8
-// This requires including the reference to System.Web.Extensions in your project
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
-// -------------------------------------------------------------------------
+
 namespace KursnaListaGrafikon
 {
     class Program
@@ -23,7 +19,6 @@ namespace KursnaListaGrafikon
 
             using (WebClient client = new WebClient())
             {
-
 
                 Dictionary<dynamic, dynamic> mydictionary = new Dictionary<dynamic, dynamic>();
                 var text = client.DownloadString(queryUri);
@@ -61,8 +56,8 @@ namespace KursnaListaGrafikon
                 //         Console.WriteLine(k);
                 // }
 
-                // //foreach(String datum in datumi)
-                // //Console.WriteLine(datum);
+                //foreach(String datum in datumi)
+                //Console.WriteLine(datum);
 
             }
         }

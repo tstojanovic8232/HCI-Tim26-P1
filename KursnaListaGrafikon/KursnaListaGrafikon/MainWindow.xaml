@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KursnaListaGrafikon"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        mc:Ignorable="d"
+        mc:Ignorable="d" 
         Title="MainWindow" d:DesignHeight="600" d:DesignWidth="1000">
+    
     <Window.Resources>
+        <!-- Style za ToggleButton -->
         <Style TargetType="ToggleButton">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#e9d9d1" />
@@ -32,6 +34,11 @@
             <Setter Property="FontFamily" Value="Garamond" />
             <Setter Property="FontSize" Value="16" />
             <Setter Property="Margin" Value="10" />
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#e9d9d1"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     <DockPanel 
@@ -40,35 +47,29 @@
         Height="Auto"
         x:Name="DockMain"
         LastChildFill="True">
+        
+        <!-- Iz valute-->
+        <WrapPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ToggleButton>RSD</ToggleButton>
+            <ToggleButton>USD</ToggleButton>
+            <ToggleButton>EUR</ToggleButton>
+            <ToggleButton>JPY</ToggleButton>
+            <ToggleButton>CHF</ToggleButton>
+        </WrapPanel>
+        
+        <!-- Prazan red radi preglednosti -->
+        <TextBlock DockPanel.Dock="Top" Foreground="#e9d9d1" FontSize="20" HorizontalAlignment="Stretch" Grid.Row="1"></TextBlock>
 
-        <Grid DockPanel.Dock="Top" HorizontalAlignment="Stretch" MaxWidth="1920">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
+        <!-- U valutu -->
+        <WrapPanel Name="SingleToggle" DockPanel.Dock="Top" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+            <ToggleButton>RSD</ToggleButton>
+            <ToggleButton>USD</ToggleButton>
+            <ToggleButton>EUR</ToggleButton>
+            <ToggleButton>JPY</ToggleButton>
+            <ToggleButton>CHF</ToggleButton>
+        </WrapPanel>
 
-            <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2">
-                <ToggleButton>RSD</ToggleButton>
-                <ToggleButton>USD</ToggleButton>
-                <ToggleButton>EUR</ToggleButton>
-                <ToggleButton>JPY</ToggleButton>
-                <ToggleButton>CHF</ToggleButton>
-            </WrapPanel>
-            <TextBlock Foreground="#e9d9d1" FontSize="20" HorizontalAlignment="Center" Grid.Row="1"></TextBlock>
-            <WrapPanel Name="SingleToggle" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
-                <ToggleButton>RSD</ToggleButton>
-                <ToggleButton>USD</ToggleButton>
-                <ToggleButton>EUR</ToggleButton>
-                <ToggleButton>JPY</ToggleButton>
-                <ToggleButton>CHF</ToggleButton>
-            </WrapPanel>
-        </Grid>
-
-
+        <!-- Postavi dugme za tabelu u donje desno ćoše nezavisno od veličine prozora-->
         <Grid DockPanel.Dock="Right">
             <Button 
                     Margin="15" 
@@ -76,10 +77,10 @@
                     Width="Auto" 
                     Height="Auto" 
                     VerticalAlignment="Bottom"
-                    Click="Button_Click">Tabela</Button>
+                    Click="TableBtn_Click">Tabela</Button>
         </Grid>
 
-
+        <!-- Grid za izbor vremenskog perioda -->
         <Grid DockPanel.Dock="Bottom" HorizontalAlignment="Left" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -87,21 +88,32 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <RadioButton Grid.Column="0">U toku dana</RadioButton>
-            <RadioButton Grid.Column="1">Dan</RadioButton>
-            <RadioButton Grid.Column="2">Mesec</RadioButton>
-            <RadioButton Grid.Column="3">Nedelja</RadioButton>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- RadioButton grupa za vremenski interval u jednom danu -->
+            <RadioButton Visibility="Collapsed" Grid.Row="0" Grid.Column="0">1 minut</RadioButton>
+            <RadioButton Visibility="Collapsed" Grid.Row="0" Grid.Column="1">5 minuta</RadioButton>
+            <RadioButton Visibility="Collapsed" Grid.Row="0" Grid.Column="2">15 minuta</RadioButton>
+            <RadioButton Visibility="Collapsed" Grid.Row="0" Grid.Column="3">30 minuta</RadioButton>
+            
+            <!-- RadioButton grupa za vremenski interval (1 dan, dani, nedelje, meseci) -->
+            <RadioButton Grid.Row="1" Grid.Column="0" Checked="Intraday_Checked">U toku dana</RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="1" Checked="RadioButton_Checked">Dan</RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="2" Checked="RadioButton_Checked">Nedelja</RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="3" Checked="RadioButton_Checked">Mesec</RadioButton>
         </Grid>
 
-
-
+        <!-- Grid za grafikone -->
         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-
+            <!-- Linijski grafikon -->
             <lvc:CartesianChart Grid.Column="0" Series="{Binding SeriesCollection}" LegendLocation="None" Margin="10,0,-460,20" >
                 <lvc:CartesianChart.AxisY>
                     <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
@@ -110,14 +122,14 @@
                     <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
+            
+            <!-- Svećasti (candlestick) grafikon -->
             <lvc:CartesianChart Series="{Binding SeriesCollection2}" Margin="531,-14,-968,14" Grid.Column="1">
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Labels="{Binding Labels2}"/>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </Grid>
-
-
 
     </DockPanel>
 </Window>
