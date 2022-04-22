@@ -40,3 +40,5 @@ C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGr
 C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.GenerateResource.cache
 C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.CoreCompileInputs.cache
 C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.CopyComplete
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\Newtonsoft.Json.xml

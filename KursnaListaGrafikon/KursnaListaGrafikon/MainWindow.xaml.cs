@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -18,6 +19,7 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System.Web.Script.Serialization;
 using System.Net;
+using KursnaListaGrafikon.Resources;
 
 namespace KursnaListaGrafikon
 {
@@ -27,93 +29,74 @@ namespace KursnaListaGrafikon
     public partial class MainWindow : Window
     {
         const string apiKey = "M4HJM8TSKJCPJ1WA";
-        public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
-        public Func<double, string> YFormatter { get; set; }
 
-        public SeriesCollection SeriesCollection2 { get; set; }
-        public string[] Labels2 { get; set; }
+        LinijskiGrafikon linijski { get; set; }
+        public List<string> valute;
+        void SetProperties()
+        {
+            this.Title = "Exchange rate change";
 
-
-
+            this.MinHeight = 500;
+            this.MinWidth = 800;
+            //Uri iconUri = new Uri("../../images/bar-graph.ico", UriKind.RelativeOrAbsolute);
+            //this.Icon = BitmapFrame.Create(iconUri);
+        }
         public MainWindow()
         {
             
             InitializeComponent();
+            SetProperties();
+            linijski = new LinijskiGrafikon();
 
-            SeriesCollection = new SeriesCollection
-            {
-                new LineSeries
-                {
-                    Title = "Series 1",
-                    Values = new ChartValues<double> { 4, 6, 5, 2 ,7 }
-                },
-                new LineSeries
-                {
-                    Title = "Series 2",
-                    Values = new ChartValues<double> { 6, 7, 3, 4 ,6 }
-                }
-            };
+            
+        }
+        private void NacrtajGrafikon(object sender, RoutedEventArgs e)
+        {
+            //List<string> pocetne = new List<string>();
+            //foreach (ToggleButton item in panel.Children)
+            //{
+            //    if (item.IsChecked==true)
+            //    {
+            //        pocetne.Add(item.Name);
+            //    }
+            //}
+            //string krajnjaValuta="";
+            //foreach (ToggleButton btn in SingleToggle.Children)
+            //{
+            //    if (btn.IsChecked == true )
+            //    {
 
+            //         krajnjaValuta = (String)btn.Content;
+                    
+            //}
+               
+            //}
+            //string inter = "";
+            //foreach (RadioButton item in interval.Children)
+            //{
+               
+            //    if (item.IsChecked == true)
+            //    {
 
-        Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
-            YFormatter = value => value.ToString("C");
+            //         inter = item.Name;
+            //    }
+               
+            //}
+            //string period="";
+            //foreach (RadioButton item in vreme.Children)
+            //{
+            //    if (item.IsChecked == true)
+            //    {
+            //         period =(String) item.Content;
+            //    }
+            //}
+            //string atribut = "open";
+            //foreach (string pocetnaValuta in pocetne)
+            //{
+            //    linijski.napraviPar(period, pocetnaValuta, krajnjaValuta, atribut, inter);
 
-            SeriesCollection.Add(new LineSeries
-            {
-                Values = new ChartValues<double> { 5, 3, 2, 4 },
-                LineSmoothness = 0 
-            });
-
-            SeriesCollection[2].Values.Add(5d);
-
-            SeriesCollection2 = new SeriesCollection
-            {
-                new CandleSeries
-                {
-                    Values = new ChartValues<OhlcPoint>
-                    {
-                        new OhlcPoint(32, 35, 30, 32),
-                        new OhlcPoint(33, 38, 31, 37),
-                        new OhlcPoint(35, 42, 30, 40),
-                        new OhlcPoint(37, 40, 35, 38),
-                        new OhlcPoint(35, 38, 32, 33),
-                        new OhlcPoint(32, 35, 30, 32),
-                        new OhlcPoint(33, 38, 31, 37),
-                        new OhlcPoint(35, 42, 30, 40),
-                        new OhlcPoint(37, 40, 35, 38),
-                        new OhlcPoint(35, 38, 32, 33),
-                        new OhlcPoint(32, 35, 30, 32),
-                        new OhlcPoint(33, 38, 31, 37),
-                        new OhlcPoint(35, 42, 30, 40),
-                        new OhlcPoint(37, 40, 35, 38),
-                        new OhlcPoint(35, 38, 32, 33),
-                        new OhlcPoint(32, 35, 30, 32),
-                        new OhlcPoint(33, 38, 31, 37),
-                        new OhlcPoint(35, 42, 30, 40),
-                        new OhlcPoint(37, 40, 35, 38),
-                        new OhlcPoint(35, 38, 32, 33),
-                        new OhlcPoint(32, 35, 30, 32),
-                        new OhlcPoint(33, 38, 31, 37),
-                        new OhlcPoint(35, 42, 30, 40),
-                        new OhlcPoint(37, 40, 35, 38),
-                        new OhlcPoint(35, 38, 32, 33)
-                    }
-                }
-            };
-
-
-            Labels2 = new[]
-            {
-                DateTime.Now.ToString("dd MMM"),
-                DateTime.Now.AddDays(1).ToString("dd MMM"),
-                DateTime.Now.AddDays(2).ToString("dd MMM"),
-                DateTime.Now.AddDays(3).ToString("dd MMM"),
-                DateTime.Now.AddDays(4).ToString("dd MMM"),
-            };
-
-
-            DataContext = this;
+            //}
+            //DataContext = this;
         }
         private void TableBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -125,6 +108,47 @@ namespace KursnaListaGrafikon
         {
 
         }
+        private void DisableButtons(object sender, RoutedEventArgs e)
+        {
+
+            
+            //    if (btn1.IsChecked==true)
+            //    {
+            //        btn2.IsEnabled = false;
+            //        btn3.IsEnabled = false;
+            //        btn4.IsEnabled = false;
+            //        btn5.IsEnabled = false;
+
+            //    }else if (btn2.IsChecked == true)
+            //{
+            //    btn1.IsEnabled = false;
+            //    btn3.IsEnabled = false;
+            //    btn4.IsEnabled = false;
+            //    btn5.IsEnabled = false;
+            //}else if (btn3.IsChecked == true)
+            //{
+            //    btn1.IsEnabled = false;
+            //    btn2.IsEnabled = false;
+            //    btn4.IsEnabled = false;
+            //    btn5.IsEnabled = false;
+            //}else if (btn4.IsChecked == true)
+            //{
+            //    btn1.IsEnabled = false;
+            //    btn2.IsEnabled = false;
+            //    btn3.IsEnabled = false;
+            //    btn5.IsEnabled = false;
+            //}
+            //else
+            //{
+            //    btn1.IsEnabled = false;
+            //    btn2.IsEnabled = false;
+            //    btn3.IsEnabled = false;
+            //    btn4.IsEnabled = false;
+            //}
+
+                
+            }
+        
 
         private void Intraday_Checked(object sender, RoutedEventArgs e)
         {
