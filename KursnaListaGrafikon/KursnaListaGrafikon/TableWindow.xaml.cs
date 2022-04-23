@@ -19,9 +19,20 @@ namespace KursnaListaGrafikon
     /// </summary>
     public partial class TableWindow : Window
     {
+        void SetProperties()
+        {
+            this.Title = "Tabela svih promena";
+
+            this.MinHeight = 500;
+            this.MinWidth = 800;
+            //Uri iconUri = new Uri("../../Images/Name.ico", UriKind.RelativeOrAbsolute);
+            //this.Icon = BitmapFrame.Create(iconUri);
+        }
+
         public TableWindow()
         {
             InitializeComponent();
+            SetProperties();
         }
     }
 }

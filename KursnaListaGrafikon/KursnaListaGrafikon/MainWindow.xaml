@@ -7,17 +7,17 @@
          xmlns:url="clr-namespace:KursnaListaGrafikon.Resources"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d" 
-        Title="MainWindow" d:DesignHeight="600" d:DesignWidth="1000">
-    
+        Title="MainWindow" Height="Auto" Width="Auto">
+
     <Window.Resources>
+        
         <!-- Style za ToggleButton -->
         <Style TargetType="ToggleButton">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#e9d9d1" />
             <Setter Property="BorderBrush" Value="#586570" />
             <Setter Property="FontFamily" Value="Garamond" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="20" />
+            <Setter Property="Padding" Value="15" />
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
                     <Setter Property="Background" Value="#e9d9d1" />
@@ -27,17 +27,56 @@
                     <Setter Property="Background" Value="#e9d9d1" />
                     <Setter Property="Foreground" Value="#16262e" />
                 </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#586570" />
+                    <Setter Property="Foreground" Value="Transparent" />
+                </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!-- Style za RadioButton -->
         <Style TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#e9d9d1" />
             <Setter Property="FontFamily" Value="Garamond" />
-            <Setter Property="FontSize" Value="16" />
             <Setter Property="Margin" Value="10" />
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
                     <Setter Property="Background" Value="#e9d9d1"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#586570" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style za RadioButton Group -->
+        <Style TargetType="StackPanel" x:Key="RBGroup">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="20" />
+        </Style>
+
+        <!-- Style za TextBlock -->
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="#e9d9d1" />
+            <Setter Property="FontFamily" Value="Garamond" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+
+        <!-- Style za Button -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#e9d9d1" />
+            <Setter Property="BorderBrush" Value="#586570" />
+            <Setter Property="FontFamily" Value="Garamond" />
+            <Setter Property="Padding" Value="15" />
+            <Setter Property="Margin" Value="15" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#e9d9d1" />
+                    <Setter Property="Foreground" Value="#16262e" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -46,87 +85,215 @@
         Background="#16262e" 
         VerticalAlignment="Stretch" 
         Height="Auto"
+        Width="Auto"
         x:Name="DockMain"
         LastChildFill="True">
-        
-        <!-- Iz valute-->
-        <WrapPanel Name ="panel" DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2">
+
+        <!-- Iz valute -->
+        <!-- Preimenovala sam radi lakšeg razumevanja koda, da ne tražimo šta je panel -->
+        <Grid DockPanel.Dock="Top" Name="pocetneValute">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
             <ToggleButton x:Name="RSD">RSD</ToggleButton>
-            <ToggleButton x:Name="USD">USD</ToggleButton>
-            <ToggleButton x:Name="EUR">EUR</ToggleButton>
-            <ToggleButton x:Name="JPY">JPY</ToggleButton>
-            <ToggleButton x:Name="CHF">CHF</ToggleButton>
-        </WrapPanel>
-        
-        <!-- Prazan red radi preglednosti -->
-        <TextBlock DockPanel.Dock="Top" Foreground="#e9d9d1" FontSize="20" HorizontalAlignment="Stretch" Grid.Row="1"></TextBlock>
+            <ToggleButton x:Name="EUR" Grid.Column="1">EUR</ToggleButton>
+            <ToggleButton x:Name="USD" Grid.Column="2">USD</ToggleButton>
+            <ToggleButton x:Name="GBP" Grid.Column="3">GBP</ToggleButton>
+            <ToggleButton x:Name="JPY" Grid.Column="4">JPY</ToggleButton>
+            <ToggleButton x:Name="CHF" Grid.Column="5">CHF</ToggleButton>
+            <ToggleButton x:Name="AUD" Grid.Column="6">AUD</ToggleButton>
+            <ToggleButton x:Name="CNY" Grid.Column="7">CNY</ToggleButton>
+            <ToggleButton x:Name="CAD" Grid.Column="8">CAD</ToggleButton>
+            <ToggleButton x:Name="RUB" Grid.Column="9">RUB</ToggleButton>
+            <ToggleButton x:Name="BAM" Grid.Column="10">BAM</ToggleButton>
+            <ToggleButton x:Name="BGN" Grid.Column="11">BGN</ToggleButton>
+            <ToggleButton x:Name="HRK" Grid.Column="12">HRK</ToggleButton>
+            <ToggleButton x:Name="HUF" Grid.Column="13">HUF</ToggleButton>
+            <ToggleButton x:Name="MKD" Grid.Column="14">MKD</ToggleButton>
+            <ToggleButton x:Name="RON" Grid.Column="15">RON</ToggleButton>
+            <ToggleButton x:Name="KRW" Grid.Column="16">KRW</ToggleButton>
+            <ToggleButton x:Name="b18" Grid.Column="17">B18</ToggleButton>
+            <ToggleButton x:Name="b19" Grid.Column="18">B19</ToggleButton>
+            <ToggleButton x:Name="b20" Grid.Column="19">B20</ToggleButton>
+        </Grid>
+
 
         <!-- U valutu -->
-        <WrapPanel Name="SingleToggle" DockPanel.Dock="Top" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
-            <ToggleButton Content="RSD"  Checked="DisableButtons" />
-            <ToggleButton  Content="USD" Checked="DisableButtons"/>
-            <ToggleButton Content="EUR" Checked="DisableButtons"/>
-            <ToggleButton   Content="JPY" Checked="DisableButtons"/>
-            <ToggleButton  Content="CHF" Checked="DisableButtons"/>
-        </WrapPanel>
-
-        <!-- Postavi dugme za tabelu u donje desno ćoše nezavisno od veličine prozora-->
-        <Grid DockPanel.Dock="Right">
-            <Button 
-                    Margin="15" 
-                    Padding="5" 
-                    Width="Auto" 
-                    Height="Auto" 
-                    VerticalAlignment="Bottom"
-                    Click="TableBtn_Click">Tabela</Button>
+        <Grid DockPanel.Dock="Top" Name="krajnjeValute">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <ToggleButton Content="RSD" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="EUR" Grid.Column="1" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="USD" Grid.Column="2" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="GBP" Grid.Column="3" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="JPY" Grid.Column="4" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="CHF" Grid.Column="5" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="AUD" Grid.Column="6" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="CNY" Grid.Column="7" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="CAD" Grid.Column="8" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="RUB" Grid.Column="9" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="BAM" Grid.Column="10" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="BGN" Grid.Column="11" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="HRK" Grid.Column="12" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="HUF" Grid.Column="13" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="MKD" Grid.Column="14" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="RON" Grid.Column="15" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="KRW" Grid.Column="16" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="B18" Grid.Column="17" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="B19" Grid.Column="18" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="B20" Grid.Column="19" Checked="DisableButtons" Unchecked="EnableButtons"/>
         </Grid>
 
-        <!-- Grid za izbor vremenskog perioda -->
-        <StackPanel Name="interval" DockPanel.Dock="Bottom" HorizontalAlignment="Left" Margin="10">
-           
-
-            <!-- RadioButton grupa za vremenski interval u jednom danu -->
-            <RadioButton Visibility="Collapsed" >1 minut</RadioButton>
-            <RadioButton Visibility="Collapsed">5 minuta</RadioButton>
-            <RadioButton Visibility="Collapsed" >15 minuta</RadioButton>
-            <RadioButton Visibility="Collapsed" >30 minuta</RadioButton>
-        </StackPanel>
-        <StackPanel Name="vreme" DockPanel.Dock="Bottom" HorizontalAlignment="Left" Margin="10">
-
-            <!-- RadioButton grupa za vremenski interval (1 dan, dani, nedelje, meseci) -->
-            <RadioButton  Content="Intraday" Checked="Intraday_Checked"/>
-            <RadioButton  Content="Daily" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Weekly" Checked="RadioButton_Checked"/>
-            <RadioButton Content="Monthly" Checked="RadioButton_Checked"/>
-
-        </StackPanel>
-        <Button DockPanel.Dock="bottom" Grid.Row="1" Grid.Column="4" Click="NacrtajGrafikon">Iscrtaj</Button>
-       
-
-        <!-- Grid za grafikone -->
-        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto">
+        <Grid DockPanel.Dock="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!-- Dugme za tabelu -->
+            <Button Content="Tabela"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Click="TableBtn_Click"/>
+
+            <!-- Dugme za iscrtavanje -->
+            <Button Content="Iscrtaj"  
+                    HorizontalAlignment="Left"
+                    Click="NacrtajGrafikon"/>
+        </Grid>
+
+        <Grid DockPanel.Dock="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="40*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="40*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock x:Name="intervalText" Text="Izaberi interval:" Visibility="Hidden"/>
+            
+            <!-- RadioButton grupa za interval (1min, 5min, 15min, 30min) -->
+            <StackPanel Name="intervali" Style="{StaticResource RBGroup}" Grid.Row="1">
+                <RadioButton Content="1min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="5min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="15min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="30min" Visibility="Hidden" Checked="Interval_Checked"/>
+            </StackPanel>
+
+            <TextBlock Text="Izaberi period:" Grid.Row="2"/>
+
+            <!-- RadioButton grupa za period (intraday, daily, weekly, monthly) -->
+            <StackPanel Name="periodi" Style="{StaticResource RBGroup}" Grid.Row="3">
+                <RadioButton Content="Intraday" Checked="Intraday_Checked" Unchecked="Intraday_Unchecked"/>
+                <RadioButton Content="Daily" Checked="Period_Checked" />
+                <RadioButton Content="Weekly" Checked="Period_Checked" />
+                <RadioButton Content="Monthly" Checked="Period_Checked" />
+            </StackPanel>
+        </Grid>
+
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"></RowDefinition>
+                <RowDefinition Height="40*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
+            <TextBlock Text="Izaberi atribut:"/>
+
+            <!-- RadioButton grupa za atribut (open, high, low, close) -->
+            <StackPanel Name="atributi" Style="{StaticResource RBGroup}" Grid.Row="1">
+                <RadioButton Content="open" Checked="Attribute_Checked"/>
+                <RadioButton Content="high" Checked="Attribute_Checked" />
+                <RadioButton Content="low" Checked="Attribute_Checked" />
+                <RadioButton Content="close" Checked="Attribute_Checked" />
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="47*"></ColumnDefinition>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+                <ColumnDefinition Width="47*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="90*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
             <!-- Linijski grafikon -->
-            <lvc:CartesianChart Grid.Column="0" Series="{Binding Path=LinijskiGrafikon.podaci}" LegendLocation="None" Margin="10,0,-460,20" >
+            <lvc:CartesianChart Series="{Binding Path=LinijskiGrafikon.podaci}" LegendLocation="None" Grid.Row="1">
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Sales" LabelFormatter="{Binding Path=LinijskiGrafikon.YFormatter}"></lvc:Axis>
+                    <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=LinijskiGrafikon.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Month" Labels="{Binding Path=LinijskiGrafikon.Labels}"></lvc:Axis>
+                    <lvc:Axis Title="Vreme" Labels="{Binding Path=LinijskiGrafikon.Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
-            
+        
             <!-- Svećasti (candlestick) grafikon -->
-            <lvc:CartesianChart Series="{Binding SeriesCollection2}" Margin="531,-14,-968,14" Grid.Column="1">
+            <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="None" Grid.Row="1" Grid.Column="2">
+                <!--<lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=SvecastiGrafikon.YFormatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>-->
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Labels="{Binding Labels2}"/>
+                    <lvc:Axis Title="Vreme" Labels="{Binding Labels2}"/>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </Grid>
-
     </DockPanel>
 </Window>
