@@ -82,8 +82,7 @@ namespace KursnaListaGrafikon.Resources
                 CandleSeries candleSeries = new CandleSeries
                 {
                     Title = $"{pocetnaValuta}-{krajnjaValuta}",
-                    Values = vrednosti,
-                    IncreaseBrush = new SolidColorBrush(Color.FromRgb(63, 181, 224))
+                    Values = vrednosti
                 };
                 podaci.Add(candleSeries);
             }
