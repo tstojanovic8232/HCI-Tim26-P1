@@ -105,10 +105,18 @@ namespace KursnaListaGrafikon
                     atribut = (String)item.Content;
                 }
             }
-            foreach (string pocetnaValuta in pocetne)
+            if (pocetne.Count == 0) MessageBox.Show("Morate odabrati pocetnu valutu.");
+            else if (krajnjaValuta == "") MessageBox.Show("Morate odabrati krajnju valutu.");
+            else if (atribut == "") MessageBox.Show("Morate odabrati atribut.");
+            else if (period == "") MessageBox.Show("Morate odabrati period.");
+            else if (inter == "" && period == "Intraday") MessageBox.Show("Morate odabrati interval.");
+            else
             {
-                linijski.napraviPar(period, pocetnaValuta, krajnjaValuta, atribut, inter);
-                svecasti.napraviPar(period, pocetnaValuta, krajnjaValuta, inter);
+                foreach (string pocetnaValuta in pocetne)
+                {
+                    linijski.napraviPar(period, pocetnaValuta, krajnjaValuta, atribut, inter);
+                    svecasti.napraviPar(period, pocetnaValuta, krajnjaValuta, inter);
+                }
             }
             DataContext = this;
 

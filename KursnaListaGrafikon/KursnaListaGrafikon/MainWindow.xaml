@@ -250,8 +250,6 @@
 
             <!-- Dugme za iscrtavanje -->
             <Button Content="Iscrtaj"  
-                    IsEnabled="False"
-                    MouseEnter="CheckAllControls"
                     HorizontalAlignment="Right"
                     Click="NacrtajGrafikon"/>
             
@@ -300,9 +298,9 @@
         
             <!-- Svećasti (candlestick) grafikon -->
             <lvc:CartesianChart Series="{Binding Path=svecasti.podaci}" LegendLocation="None" Grid.Row="1" Grid.Column="2">
-                <lvc:CartesianChart.AxisY>
+                <!--lvc:CartesianChart.AxisY>
                     <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=svecasti.YFormatter}"></lvc:Axis>
-                </lvc:CartesianChart.AxisY>
+                </-->
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Vreme" Labels="{Binding Path=svecasti.labele}"/>
                 </lvc:CartesianChart.AxisX>
