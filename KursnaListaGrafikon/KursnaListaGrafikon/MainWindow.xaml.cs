@@ -33,6 +33,8 @@ namespace KursnaListaGrafikon
         public LinijskiGrafikon linijski { get; set; }
         public List<string> valute;
 
+        public bool allSelect = false;
+
         public SvecastiGrafikon svecasti { get; set; }
 
         void SetProperties()
@@ -56,6 +58,7 @@ namespace KursnaListaGrafikon
         private void NacrtajGrafikon(object sender, RoutedEventArgs e)
         {
             linijski.ocistiPovrsinu();
+            svecasti.ocistiPovrsinu();
             List<string> pocetne = new List<string>();
             foreach (ToggleButton item in pocetneValute.Children)
             {
@@ -94,7 +97,14 @@ namespace KursnaListaGrafikon
                     period = (String)item.Content;
                 }
             }
-            string atribut = "open";
+            string atribut = "";
+            foreach (RadioButton item in atributi.Children)
+            {
+                if (item.IsChecked == true)
+                {
+                    atribut = (String)item.Content;
+                }
+            }
             foreach (string pocetnaValuta in pocetne)
             {
                 linijski.napraviPar(period, pocetnaValuta, krajnjaValuta, atribut, inter);
@@ -114,8 +124,34 @@ namespace KursnaListaGrafikon
             foreach (ToggleButton btn in krajnjeValute.Children)
             {
                 if (btn.IsChecked == false) btn.IsEnabled = false;
-                
+                else
+                {
+                    foreach (ToggleButton btnP in pocetneValute.Children)
+                    {
+                        if (btn.Content.ToString() == btnP.Name)
+                        {
+                            btnP.IsEnabled = false;
+                        }
+                    }
+                }
             }  
+        }
+
+        private void DisableSame(object sender, RoutedEventArgs e)
+        {
+            foreach (ToggleButton btn in pocetneValute.Children)
+            {
+                if (btn.IsChecked == true)
+                {
+                    foreach (ToggleButton btnK in krajnjeValute.Children)
+                    {
+                        if (btnK.Content.ToString() == btn.Name)
+                        {
+                            btnK.IsEnabled = false;
+                        }
+                    }
+                }
+            }
         }
 
         private void EnableButtons(object sender, RoutedEventArgs e)
@@ -123,9 +159,37 @@ namespace KursnaListaGrafikon
             foreach (ToggleButton btn in krajnjeValute.Children)
             {
                 if (btn.IsEnabled == false) btn.IsEnabled = true;
+            }
+
+            foreach (ToggleButton btnP in pocetneValute.Children)
+            {
+                foreach (ToggleButton btn in krajnjeValute.Children)
+                {
+                    if (btn.Content.ToString() == btnP.Name && btnP.IsChecked == true) btn.IsEnabled = false;
+                    else if (btn.Content.ToString() == btnP.Name && btnP.IsEnabled == false) btnP.IsEnabled = true;
+                }
+            }
                 
+            
+        }
+
+        private void EnableSame(object sender, RoutedEventArgs e)
+        {
+            foreach (ToggleButton btn in pocetneValute.Children)
+            {
+                if (btn.IsChecked == false)
+                {
+                    foreach (ToggleButton btnK in krajnjeValute.Children)
+                    {
+                        if (btnK.Content.ToString() == btn.Name)
+                        {
+                            btnK.IsEnabled = true;
+                        }
+                    }
+                }
             }
         }
+
 
         private void Intraday_Checked(object sender, RoutedEventArgs e)
         {
@@ -146,6 +210,32 @@ namespace KursnaListaGrafikon
                 btn.Visibility = Visibility.Hidden;
                 intervalText.Visibility = Visibility.Hidden;
                 if (btn.IsChecked == true) btn.IsChecked = false;
+            }
+        }
+
+        private void CheckAllControls(object sender, RoutedEventArgs e)
+        {
+            //Proveri da li je sve selektovano
+            foreach (ToggleButton btn in pocetneValute.Children)
+            {
+                bool pv = false;
+                if (btn.IsChecked == true) pv = true;
+            }
+            foreach (ToggleButton btn in krajnjeValute.Children)
+            {
+                bool kv = false;
+                if (btn.IsChecked == true) kv = true;
+            }
+            foreach (RadioButton btn in periodi.Children)
+            {
+                bool p = false;
+                if (btn.IsChecked == true) p = true;
+                //if (intervali)
+            }
+            foreach (RadioButton btn in pocetneValute.Children)
+            {
+                bool i = false;
+                if (btn.IsChecked == true) i = true;
             }
         }
     }

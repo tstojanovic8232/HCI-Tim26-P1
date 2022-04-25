@@ -62,13 +62,19 @@ namespace KursnaListaGrafikon.Resources
                 kljuc = (interval == "") ? vreme : interval;
                 dynamic lista = pod[$"Time Series FX ({kljuc})"];
                 ChartValues<OhlcPoint> vrednosti = new ChartValues<OhlcPoint>();
+                double open, close, high, low;
+                List<double> ohlc_vrednosti = new List<double>();
 
                 foreach (KeyValuePair<string, dynamic> i in lista)
-                {
-                    double open = Double.Parse(i.Value[atributi["open"]]);
-                    double close = Double.Parse(i.Value[atributi["close"]]);
-                    double high = Double.Parse(i.Value[atributi["high"]]);
-                    double low = Double.Parse(i.Value[atributi["low"]]);
+                {   
+                    foreach(KeyValuePair<string, dynamic> j in i.Value)
+                    {
+                        ohlc_vrednosti.Add(double.Parse(j.Value));
+                    }
+                    open = ohlc_vrednosti[0];
+                    close = ohlc_vrednosti[1];
+                    high = ohlc_vrednosti[2];
+                    low = ohlc_vrednosti[3];
                     OhlcPoint val = new OhlcPoint(open, high, low, close);
                     labele.Add(i.Key);
                     vrednosti.Add(val);
@@ -76,9 +82,8 @@ namespace KursnaListaGrafikon.Resources
                 CandleSeries candleSeries = new CandleSeries
                 {
                     Title = $"{pocetnaValuta}-{krajnjaValuta}",
-                    Values = vrednosti
-
-
+                    Values = vrednosti,
+                    IncreaseBrush = new SolidColorBrush(Color.FromRgb(63, 181, 224))
                 };
                 podaci.Add(candleSeries);
             }
@@ -88,11 +93,12 @@ namespace KursnaListaGrafikon.Resources
             }
 
 
-            void ocistiPovrsinu()
+            
+        }
+        public void ocistiPovrsinu()
             {
                 podaci.Clear();
                 labele.Clear();
             }
-        }
     }
 }

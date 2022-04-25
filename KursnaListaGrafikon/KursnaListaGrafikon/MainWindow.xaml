@@ -118,27 +118,27 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"></RowDefinition>
             </Grid.RowDefinitions>
-            
-            <ToggleButton x:Name="RSD">RSD</ToggleButton>
-            <ToggleButton x:Name="EUR" Grid.Column="1">EUR</ToggleButton>
-            <ToggleButton x:Name="USD" Grid.Column="2">USD</ToggleButton>
-            <ToggleButton x:Name="GBP" Grid.Column="3">GBP</ToggleButton>
-            <ToggleButton x:Name="JPY" Grid.Column="4">JPY</ToggleButton>
-            <ToggleButton x:Name="CHF" Grid.Column="5">CHF</ToggleButton>
-            <ToggleButton x:Name="AUD" Grid.Column="6">AUD</ToggleButton>
-            <ToggleButton x:Name="CNY" Grid.Column="7">CNY</ToggleButton>
-            <ToggleButton x:Name="CAD" Grid.Column="8">CAD</ToggleButton>
-            <ToggleButton x:Name="RUB" Grid.Column="9">RUB</ToggleButton>
-            <ToggleButton x:Name="BAM" Grid.Column="10">BAM</ToggleButton>
-            <ToggleButton x:Name="BGN" Grid.Column="11">BGN</ToggleButton>
-            <ToggleButton x:Name="HRK" Grid.Column="12">HRK</ToggleButton>
-            <ToggleButton x:Name="HUF" Grid.Column="13">HUF</ToggleButton>
-            <ToggleButton x:Name="MKD" Grid.Column="14">MKD</ToggleButton>
-            <ToggleButton x:Name="RON" Grid.Column="15">RON</ToggleButton>
-            <ToggleButton x:Name="KRW" Grid.Column="16">KRW</ToggleButton>
-            <ToggleButton x:Name="b18" Grid.Column="17">B18</ToggleButton>
-            <ToggleButton x:Name="b19" Grid.Column="18">B19</ToggleButton>
-            <ToggleButton x:Name="b20" Grid.Column="19">B20</ToggleButton>
+
+            <ToggleButton x:Name="RSD" Checked="DisableSame" Unchecked="EnableSame">RSD</ToggleButton>
+            <ToggleButton x:Name="EUR" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="1">EUR</ToggleButton>
+            <ToggleButton x:Name="USD" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="2">USD</ToggleButton>
+            <ToggleButton x:Name="GBP" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="3">GBP</ToggleButton>
+            <ToggleButton x:Name="JPY" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="4">JPY</ToggleButton>
+            <ToggleButton x:Name="CHF" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="5">CHF</ToggleButton>
+            <ToggleButton x:Name="AUD" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="6">AUD</ToggleButton>
+            <ToggleButton x:Name="CNY" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="7">CNY</ToggleButton>
+            <ToggleButton x:Name="CAD" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="8">CAD</ToggleButton>
+            <ToggleButton x:Name="RUB" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="9">RUB</ToggleButton>
+            <ToggleButton x:Name="BAM" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="10">BAM</ToggleButton>
+            <ToggleButton x:Name="BGN" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="11">BGN</ToggleButton>
+            <ToggleButton x:Name="HRK" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="12">HRK</ToggleButton>
+            <ToggleButton x:Name="HUF" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="13">HUF</ToggleButton>
+            <ToggleButton x:Name="MKD" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="14">MKD</ToggleButton>
+            <ToggleButton x:Name="RON" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="15">RON</ToggleButton>
+            <ToggleButton x:Name="KRW" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="16">KRW</ToggleButton>
+            <ToggleButton x:Name="b18" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="17">B18</ToggleButton>
+            <ToggleButton x:Name="b19" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="18">B19</ToggleButton>
+            <ToggleButton x:Name="b20" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="19">B20</ToggleButton>
         </Grid>
 
 
@@ -250,6 +250,8 @@
 
             <!-- Dugme za iscrtavanje -->
             <Button Content="Iscrtaj"  
+                    IsEnabled="False"
+                    MouseEnter="CheckAllControls"
                     HorizontalAlignment="Right"
                     Click="NacrtajGrafikon"/>
             
@@ -298,9 +300,9 @@
         
             <!-- Svećasti (candlestick) grafikon -->
             <lvc:CartesianChart Series="{Binding Path=svecasti.podaci}" LegendLocation="None" Grid.Row="1" Grid.Column="2">
-                <!--<lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=SvecastiGrafikon.YFormatter}"></lvc:Axis>
-                </lvc:CartesianChart.AxisY>-->
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=svecasti.YFormatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Vreme" Labels="{Binding Path=svecasti.labele}"/>
                 </lvc:CartesianChart.AxisX>

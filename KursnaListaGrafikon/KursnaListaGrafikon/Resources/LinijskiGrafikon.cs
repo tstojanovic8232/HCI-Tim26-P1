@@ -46,7 +46,7 @@ namespace KursnaListaGrafikon.Resources
                 query = $"https://www.alphavantage.co/query?function={periodi[vreme]}&from_symbol={pocetnaValuta}&to_symbol={krajnjaValuta}&interval={interval}&apikey={apiKey}";
             }
             else {
-                query = $"https://www.alphavantage.co/query?function={periodi[vreme]}&from_symbol={pocetnaValuta}&to_symbol={krajnjaValuta}&interval={interval}&apikey={apiKey}";
+                query = $"https://www.alphavantage.co/query?function={periodi[vreme]}&from_symbol={pocetnaValuta}&to_symbol={krajnjaValuta}&apikey={apiKey}";
             }
             UcitavanjeAPI ucitavanje = new UcitavanjeAPI();
             dynamic pod=ucitavanje.getData(query);
