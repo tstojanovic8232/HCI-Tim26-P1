@@ -292,7 +292,7 @@
                     <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=linijski.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Vreme" Labels="{Binding Path=linijski.Labels}"></lvc:Axis>
+                    <lvc:Axis Title="Vreme" Labels="{Binding Path=linijski.labele}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         

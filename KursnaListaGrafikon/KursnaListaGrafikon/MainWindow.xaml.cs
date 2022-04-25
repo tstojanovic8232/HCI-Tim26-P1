@@ -30,7 +30,7 @@ namespace KursnaListaGrafikon
     {
         const string apiKey = "M4HJM8TSKJCPJ1WA";
 
-        LinijskiGrafikon linijski { get; set; }
+        public LinijskiGrafikon linijski { get; set; }
         public List<string> valute;
 
        
@@ -55,6 +55,7 @@ namespace KursnaListaGrafikon
         }
         private void NacrtajGrafikon(object sender, RoutedEventArgs e)
         {
+            linijski.ocistiPovrsinu();
             List<string> pocetne = new List<string>();
             foreach (ToggleButton item in pocetneValute.Children)
             {
@@ -81,7 +82,7 @@ namespace KursnaListaGrafikon
                 if (item.IsChecked == true)
                 {
 
-                    inter = item.Name;
+                    inter = (String) item.Content;
                 }
 
             }
@@ -97,7 +98,7 @@ namespace KursnaListaGrafikon
             foreach (string pocetnaValuta in pocetne)
             {
                 linijski.napraviPar(period, pocetnaValuta, krajnjaValuta, atribut, inter);
-
+                
             }
             DataContext = this;
 

@@ -12,10 +12,10 @@ namespace KursnaListaGrafikon.Resources
 {
     public class LinijskiGrafikon : System.Windows.Controls.UserControl
     {
-        Dictionary<string, string> atributi  { get; set; }
-        Dictionary<string, string> periodi { get; set; }
-        List<string> labele { get; set; }
-        SeriesCollection podaci { get; set; }
+        public Dictionary<string, string> atributi  { get; set; }
+        public Dictionary<string, string> periodi { get; set; }
+        public List<string> labele { get; set; }
+        public SeriesCollection podaci { get; set; }
         public Func<double, string> YFormatter { get; }
 
         public LinijskiGrafikon()
