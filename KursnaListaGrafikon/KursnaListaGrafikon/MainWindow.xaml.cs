@@ -33,7 +33,7 @@ namespace KursnaListaGrafikon
         public LinijskiGrafikon linijski { get; set; }
         public List<string> valute;
 
-       
+        public SvecastiGrafikon svecasti { get; set; }
 
         void SetProperties()
         {
@@ -50,7 +50,7 @@ namespace KursnaListaGrafikon
             SetProperties();
 
             linijski = new LinijskiGrafikon();
-
+            svecasti = new SvecastiGrafikon();
             
         }
         private void NacrtajGrafikon(object sender, RoutedEventArgs e)
@@ -98,7 +98,7 @@ namespace KursnaListaGrafikon
             foreach (string pocetnaValuta in pocetne)
             {
                 linijski.napraviPar(period, pocetnaValuta, krajnjaValuta, atribut, inter);
-                
+                svecasti.napraviPar(period, pocetnaValuta, krajnjaValuta, inter);
             }
             DataContext = this;
 
