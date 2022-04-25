@@ -243,23 +243,24 @@
 
         <Grid DockPanel.Dock="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*"></ColumnDefinition>
-                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="90*"></ColumnDefinition>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"></RowDefinition>
             </Grid.RowDefinitions>
 
+            <!-- Dugme za iscrtavanje -->
+            <Button Content="Iscrtaj"  
+                    HorizontalAlignment="Right"
+                    Click="NacrtajGrafikon"/>
+            
             <!-- Dugme za tabelu -->
             <Button Content="Tabela"
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                     Click="TableBtn_Click"/>
 
-            <!-- Dugme za iscrtavanje -->
-            <Button Content="Iscrtaj"  
-                    HorizontalAlignment="Left"
-                    Click="NacrtajGrafikon"/>
         </Grid>
 
         <Grid DockPanel.Dock="Right">
