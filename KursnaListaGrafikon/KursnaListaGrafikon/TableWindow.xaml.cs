@@ -20,14 +20,16 @@ namespace KursnaListaGrafikon
 {
     public class PodaciValutaTabele
     {
+        public string par { get; set; }
         public string date { get; set; }
         public string open { get; set; }
         public string low { get; set; }
         public string high { get; set; }
         public string close { get; set; }
 
-        public PodaciValutaTabele(string date, string open, string low, string high, string close)
+        public PodaciValutaTabele(string par, string date, string open, string low, string high, string close)
         {
+            this.par = par;
             this.date = date;
             this.open = open;
             this.low = low;
@@ -41,15 +43,15 @@ namespace KursnaListaGrafikon
     /// </summary>
     public partial class TableWindow : Window
     {
-        public string tableTittle { get; set; }
-        public Dictionary<String, Object> tableData { get; set; }
+        public string naslovTabele { get; set; }
+        public Dictionary<String, Object> podaci { get; set; }
 
         public ObservableCollection<PodaciValutaTabele> podaciTabele { get; set; }
 
         public string pocetnaValuta { get; set; }
         public string krajnjaValuta { get; set; }
 
-        Dictionary<string, string> linkoviTabela { get; set; }
+        public Dictionary<string, string> linkoviTabela { get; set; }
 
         UcitavanjeAPI data { get; set; }
 
@@ -61,8 +63,9 @@ namespace KursnaListaGrafikon
 
             this.MinHeight = 500;
             this.MinWidth = 800;
-            //Uri iconUri = new Uri("../../Images/Name.ico", UriKind.RelativeOrAbsolute);
-            //this.Icon = BitmapFrame.Create(iconUri);
+
+            Uri iconUri = new Uri("../../Resources/KursGraf.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
         }
 
         public TableWindow()
@@ -70,56 +73,47 @@ namespace KursnaListaGrafikon
             InitializeComponent();
             SetProperties();
 
-
+            linkoviTabela = new Dictionary<string, string>();
 
             DataContext = this;
 
-            var window = Application.Current.MainWindow; 
+            var prozor = Application.Current.MainWindow;
 
             podaciTabele = new ObservableCollection<PodaciValutaTabele>();
             data = new UcitavanjeAPI();
 
-            linkoviTabela = (window as MainWindow).linkoviTabela;
-            
+            linkoviTabela = (prozor as MainWindow).linkoviTabela;
 
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            if (PropertyChanged != null)
+            foreach (KeyValuePair<string, string>
+api in linkoviTabela)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                crtajTabelu(api.Value, api.Key);
             }
         }
 
-        
 
-        private void crtajTabelu(string api)
+        private void crtajTabelu(string api, string par)
         {
 
-            podaciTabele.Clear(); //da se prvo isprazne prethodni podaci
 
-            dynamic json_data = data.getData(api); //ovde prosledjivati potrebne parametre pa prilagoditi tamo api
+            dynamic json_data = data.getData(api);
 
-            var dictionary = (Dictionary<string, object>)json_data;
-            var dataSet = dictionary.ElementAt(1);
-            Dictionary<String, Object> listData = (Dictionary<String, Object>)dataSet.Value;
-            tableTittle = dataSet.Key.ToString();
+            var dict = (Dictionary<string, object>)json_data;
+            var ds = dict.ElementAt(1);
+            Dictionary<String, Object> lista = (Dictionary<String, Object>)ds.Value;
+            naslovTabele = ds.Key.ToString();
 
-            foreach (var elem in listData)
+            foreach (var elem in lista)
             {
-                Dictionary<string, object> valueData = (Dictionary<string, object>)elem.Value;
-                PodaciValutaTabele rowData = new PodaciValutaTabele(elem.Key.ToString(), valueData["1. open"].ToString(), valueData["3. low"].ToString(), valueData["2. high"].ToString(), valueData["4. close"].ToString()
+                Dictionary<string, object> vrednosti = (Dictionary<string, object>)elem.Value;
+                PodaciValutaTabele vrsta = new PodaciValutaTabele(par, elem.Key.ToString(), vrednosti["1. open"].ToString(), vrednosti["3. low"].ToString(), vrednosti["2. high"].ToString(), vrednosti["4. close"].ToString()
                     );
 
-                podaciTabele.Add(rowData);
+                podaciTabele.Add(vrsta);
             }
-            tableData = listData;
-
-            NotifyPropertyChanged("currencyData");
+            podaci = lista;
 
         }
 
-       
     }
 }

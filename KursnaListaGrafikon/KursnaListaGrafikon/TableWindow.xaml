@@ -18,8 +18,51 @@
     </Window.Resources>
     <Grid Background="#16262e">
         <!-- Tabela kojoj je Binding kolekcija sa podacima (Dictionary, List, šta god) -->
-        <DataGrid DataContext="{Binding Path=podaciTabele }">
-            
+        <DataGrid ItemsSource="{Binding podaciTabele}"
+                  Name="tabela"
+                  AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding par}"
+                                    Header="Par valuta"
+                                    Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding date}"
+                                    Header="Datum i vreme"
+                                    Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding open}"
+                                    Header="Open"
+                                    Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding low}"
+                                    Header="Low"
+                                    Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding high}"
+                                    Header="High"
+                                    Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding close}"
+                                    Header="Close"
+                                    Width="0.2*"/>
+
+            </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#e9d9d1"/>
+                    <Setter Property="Foreground" Value="#16262e"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="Height" Value="25"/>
+                    <Setter Property="FontWeight"  Value="DemiBold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderBrush" Value="#586570"/>
+                    <Setter Property="BorderThickness" Value="0.6"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>
+
         </DataGrid>
     </Grid>
 </Window>

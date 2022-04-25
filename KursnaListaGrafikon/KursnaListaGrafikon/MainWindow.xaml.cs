@@ -43,8 +43,8 @@ namespace KursnaListaGrafikon
 
             this.MinHeight = 500;
             this.MinWidth = 800;
-            //Uri iconUri = new Uri("../../Images/Name.ico", UriKind.RelativeOrAbsolute);
-            //this.Icon = BitmapFrame.Create(iconUri);
+            Uri iconUri = new Uri("../../Resources/KursGraf.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
         }
         public MainWindow()
         {
@@ -53,7 +53,9 @@ namespace KursnaListaGrafikon
 
             linijski = new LinijskiGrafikon();
             svecasti = new SvecastiGrafikon();
-            
+            linkoviTabela = new Dictionary<string, string>();
+
+
         }
         private void NacrtajGrafikon(object sender, RoutedEventArgs e)
         {
@@ -123,6 +125,8 @@ namespace KursnaListaGrafikon
         }
         private void TableBtn_Click(object sender, RoutedEventArgs e)
         {
+            linkoviTabela.Clear();
+            crtajTabelu();
             var s = new TableWindow();
             s.ShowDialog();
         }
