@@ -31,11 +31,11 @@ namespace KursnaListaGrafikon
         const string apiKey = "M4HJM8TSKJCPJ1WA";
 
         public LinijskiGrafikon linijski { get; set; }
-        public List<string> valute;
 
-        public bool allSelect = false;
 
         public SvecastiGrafikon svecasti { get; set; }
+        public Dictionary<string, string> linkoviTabela { get; set; }
+        
 
         void SetProperties()
         {
@@ -124,7 +124,7 @@ namespace KursnaListaGrafikon
         private void TableBtn_Click(object sender, RoutedEventArgs e)
         {
             var s = new TableWindow();
-            s.Show();
+            s.ShowDialog();
         }
 
         private void DisableButtons(object sender, RoutedEventArgs e)
@@ -221,31 +221,81 @@ namespace KursnaListaGrafikon
             }
         }
 
-        private void CheckAllControls(object sender, RoutedEventArgs e)
+        public void crtajTabelu()
         {
-            //Proveri da li je sve selektovano
-            foreach (ToggleButton btn in pocetneValute.Children)
+            List<string> pocetne = new List<string>();
+            foreach (ToggleButton item in pocetneValute.Children)
             {
-                bool pv = false;
-                if (btn.IsChecked == true) pv = true;
+                if (item.IsChecked == true)
+                {
+                    pocetne.Add(item.Name);
+                }
             }
+            string krajnjaValuta = "";
             foreach (ToggleButton btn in krajnjeValute.Children)
             {
-                bool kv = false;
-                if (btn.IsChecked == true) kv = true;
+                if (btn.IsChecked == true)
+                {
+
+                    krajnjaValuta = (String)btn.Content;
+
+                }
+
             }
-            foreach (RadioButton btn in periodi.Children)
+            string inter = "";
+            foreach (RadioButton item in intervali.Children)
             {
-                bool p = false;
-                if (btn.IsChecked == true) p = true;
-                //if (intervali)
+
+                if (item.IsChecked == true)
+                {
+
+                    inter = (String)item.Content;
+                }
+
             }
-            foreach (RadioButton btn in pocetneValute.Children)
+            string period = "";
+            foreach (RadioButton item in periodi.Children)
             {
-                bool i = false;
-                if (btn.IsChecked == true) i = true;
+                if (item.IsChecked == true)
+                {
+                    period = (String)item.Content;
+                }
             }
+            string atribut = "";
+            foreach (RadioButton item in atributi.Children)
+            {
+                if (item.IsChecked == true)
+                {
+                    atribut = (String)item.Content;
+                }
+            }
+
+            Dictionary<string, string> periodiTabele = new Dictionary<string, string>();
+            periodiTabele.Add("Intraday", "FX_INTRADAY");
+            periodiTabele.Add("Daily", "FX_DAILY");
+            periodiTabele.Add("Weekly", "FX_WEEKLY");
+            periodiTabele.Add("Monthly", "FX_MONTHLY");
+
+            const string apiKey = "Z7DBOYZAU3RWWU1C";
+            string query = null;
+            foreach (string pocetnaValuta in pocetne)
+            {
+                if (inter != "")
+                {
+                    query = $"https://www.alphavantage.co/query?function={periodiTabele[period]}&from_symbol={pocetnaValuta}&to_symbol={krajnjaValuta}&interval={inter}&apikey={apiKey}";
+                }
+                else
+                {
+                    query = $"https://www.alphavantage.co/query?function={periodiTabele[period]}&from_symbol={pocetnaValuta}&to_symbol={krajnjaValuta}&apikey={apiKey}";
+                }
+
+                string kljuc = $"{pocetnaValuta}-{krajnjaValuta}";
+                linkoviTabela.Add(kljuc, query);
+
+            }
+            
         }
+        
     }
     //API key: M4HJM8TSKJCPJ1WA
 }

@@ -18,8 +18,8 @@
     </Window.Resources>
     <Grid Background="#16262e">
         <!-- Tabela kojoj je Binding kolekcija sa podacima (Dictionary, List, šta god) -->
-        <DataGrid >
-
+        <DataGrid DataContext="{Binding Path=podaciTabele }">
+            
         </DataGrid>
     </Grid>
 </Window>
