@@ -191,6 +191,56 @@
             <ToggleButton Content="B20" Grid.Column="19" Checked="DisableButtons" Unchecked="EnableButtons"/>
         </Grid>
 
+        
+
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="18*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="18*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="18*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock />
+
+            <TextBlock Text="Izaberi atribut:" Grid.Row="1"/>
+
+            <!-- RadioButton grupa za atribut (open, high, low, close) -->
+            <StackPanel Name="atributi" Style="{StaticResource RBGroup}" Grid.Row="2">
+                <RadioButton Content="open" Checked="Attribute_Checked"/>
+                <RadioButton Content="high" Checked="Attribute_Checked" />
+                <RadioButton Content="low" Checked="Attribute_Checked" />
+                <RadioButton Content="close" Checked="Attribute_Checked" />
+            </StackPanel>
+
+            <TextBlock Text="Izaberi period:" Grid.Row="3"/>
+
+            <!-- RadioButton grupa za period (intraday, daily, weekly, monthly) -->
+            <StackPanel Name="periodi" Style="{StaticResource RBGroup}" Grid.Row="4">
+                <RadioButton Content="Intraday" Checked="Intraday_Checked" Unchecked="Intraday_Unchecked"/>
+                <RadioButton Content="Daily" Checked="Period_Checked" />
+                <RadioButton Content="Weekly" Checked="Period_Checked" />
+                <RadioButton Content="Monthly" Checked="Period_Checked" />
+            </StackPanel>
+
+            <TextBlock x:Name="intervalText" Text="Izaberi interval:" Visibility="Hidden" Grid.Row="5"/>
+
+            <!-- RadioButton grupa za interval (1min, 5min, 15min, 30min) -->
+            <StackPanel Name="intervali" Style="{StaticResource RBGroup}" Grid.Row="6">
+                <RadioButton Content="1min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="5min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="15min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="30min" Visibility="Hidden" Checked="Interval_Checked"/>
+            </StackPanel>
+        </Grid>
+
         <Grid DockPanel.Dock="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"></ColumnDefinition>
@@ -199,7 +249,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <!-- Dugme za tabelu -->
             <Button Content="Tabela"
                     Grid.Column="1"
@@ -214,54 +264,16 @@
 
         <Grid DockPanel.Dock="Right">
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*"></RowDefinition>
-                <RowDefinition Height="40*"></RowDefinition>
-                <RowDefinition Height="10*"></RowDefinition>
-                <RowDefinition Height="40*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            
-            <TextBlock x:Name="intervalText" Text="Izaberi interval:" Visibility="Hidden"/>
-            
-            <!-- RadioButton grupa za interval (1min, 5min, 15min, 30min) -->
-            <StackPanel Name="intervali" Style="{StaticResource RBGroup}" Grid.Row="1">
-                <RadioButton Content="1min" Visibility="Hidden" Checked="Interval_Checked"/>
-                <RadioButton Content="5min" Visibility="Hidden" Checked="Interval_Checked"/>
-                <RadioButton Content="15min" Visibility="Hidden" Checked="Interval_Checked"/>
-                <RadioButton Content="30min" Visibility="Hidden" Checked="Interval_Checked"/>
-            </StackPanel>
-
-            <TextBlock Text="Izaberi period:" Grid.Row="2"/>
-
-            <!-- RadioButton grupa za period (intraday, daily, weekly, monthly) -->
-            <StackPanel Name="periodi" Style="{StaticResource RBGroup}" Grid.Row="3">
-                <RadioButton Content="Intraday" Checked="Intraday_Checked" Unchecked="Intraday_Unchecked"/>
-                <RadioButton Content="Daily" Checked="Period_Checked" />
-                <RadioButton Content="Weekly" Checked="Period_Checked" />
-                <RadioButton Content="Monthly" Checked="Period_Checked" />
-            </StackPanel>
-        </Grid>
-
-        <Grid DockPanel.Dock="Left">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60*"></RowDefinition>
-                <RowDefinition Height="40*"></RowDefinition>
+                <RowDefinition Height="100*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Izaberi atribut:"/>
-
-            <!-- RadioButton grupa za atribut (open, high, low, close) -->
-            <StackPanel Name="atributi" Style="{StaticResource RBGroup}" Grid.Row="1">
-                <RadioButton Content="open" Checked="Attribute_Checked"/>
-                <RadioButton Content="high" Checked="Attribute_Checked" />
-                <RadioButton Content="low" Checked="Attribute_Checked" />
-                <RadioButton Content="close" Checked="Attribute_Checked" />
+            <StackPanel Style="{StaticResource RBGroup}">
+                <RadioButton Content="Intraday" Visibility="Hidden"/>
             </StackPanel>
+
         </Grid>
 
         <Grid>
