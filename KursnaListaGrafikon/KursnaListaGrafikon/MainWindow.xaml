@@ -212,10 +212,10 @@
 
             <!-- RadioButton grupa za atribut (open, high, low, close) -->
             <StackPanel Name="atributi" Style="{StaticResource RBGroup}" Grid.Row="1">
-                <RadioButton Content="open" Checked="Attribute_Checked"/>
-                <RadioButton Content="high" Checked="Attribute_Checked" />
-                <RadioButton Content="low" Checked="Attribute_Checked" />
-                <RadioButton Content="close" Checked="Attribute_Checked" />
+                <RadioButton Content="open" />
+                <RadioButton Content="high"  />
+                <RadioButton Content="low"  />
+                <RadioButton Content="close"  />
             </StackPanel>
 
             <TextBlock Text="Izaberi period:" Grid.Row="2"/>
@@ -223,19 +223,19 @@
             <!-- RadioButton grupa za period (intraday, daily, weekly, monthly) -->
             <StackPanel Name="periodi" Style="{StaticResource RBGroup}" Grid.Row="3">
                 <RadioButton Content="Intraday" Checked="Intraday_Checked" Unchecked="Intraday_Unchecked"/>
-                <RadioButton Content="Daily" Checked="Period_Checked" />
-                <RadioButton Content="Weekly" Checked="Period_Checked" />
-                <RadioButton Content="Monthly" Checked="Period_Checked" />
+                <RadioButton Content="Daily"  />
+                <RadioButton Content="Weekly"  />
+                <RadioButton Content="Monthly"  />
             </StackPanel>
 
             <TextBlock x:Name="intervalText" Text="Izaberi interval:" Visibility="Hidden" Grid.Row="4"/>
 
             <!-- RadioButton grupa za interval (1min, 5min, 15min, 30min) -->
             <StackPanel Name="intervali" Style="{StaticResource RBGroup}" Grid.Row="5">
-                <RadioButton Content="1min" Visibility="Hidden" Checked="Interval_Checked"/>
-                <RadioButton Content="5min" Visibility="Hidden" Checked="Interval_Checked"/>
-                <RadioButton Content="15min" Visibility="Hidden" Checked="Interval_Checked"/>
-                <RadioButton Content="30min" Visibility="Hidden" Checked="Interval_Checked"/>
+                <RadioButton Content="1min" Visibility="Hidden" />
+                <RadioButton Content="5min" Visibility="Hidden" />
+                <RadioButton Content="15min" Visibility="Hidden" />
+                <RadioButton Content="30min" Visibility="Hidden" />
             </StackPanel>
         </Grid>
 

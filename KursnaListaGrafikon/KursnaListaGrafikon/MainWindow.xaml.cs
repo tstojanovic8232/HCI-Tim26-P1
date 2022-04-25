@@ -108,11 +108,6 @@ namespace KursnaListaGrafikon
             s.Show();
         }
 
-        private void Period_Checked(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
         private void DisableButtons(object sender, RoutedEventArgs e)
         {
             foreach (ToggleButton btn in krajnjeValute.Children)
@@ -140,7 +135,6 @@ namespace KursnaListaGrafikon
                 intervalText.Visibility = Visibility.Visible;
             }
 
-            Period_Checked(sender, e);
         }
 
         private void Intraday_Unchecked(object sender, RoutedEventArgs e)
@@ -152,16 +146,6 @@ namespace KursnaListaGrafikon
                 intervalText.Visibility = Visibility.Hidden;
                 if (btn.IsChecked == true) btn.IsChecked = false;
             }
-        }
-
-        private void Interval_Checked(object sender, RoutedEventArgs e)
-        {
-           
-        }
-        
-        private void Attribute_Checked(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
     //API key: M4HJM8TSKJCPJ1WA
