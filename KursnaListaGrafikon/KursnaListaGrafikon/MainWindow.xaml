@@ -136,9 +136,9 @@
             <ToggleButton x:Name="MKD" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="14">MKD</ToggleButton>
             <ToggleButton x:Name="RON" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="15">RON</ToggleButton>
             <ToggleButton x:Name="KRW" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="16">KRW</ToggleButton>
-            <ToggleButton x:Name="b18" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="17">B18</ToggleButton>
-            <ToggleButton x:Name="b19" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="18">B19</ToggleButton>
-            <ToggleButton x:Name="b20" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="19">B20</ToggleButton>
+            <ToggleButton x:Name="BRL" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="17">BRL</ToggleButton>
+            <ToggleButton x:Name="HKD" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="18">HKD</ToggleButton>
+            <ToggleButton x:Name="CZK" Checked="DisableSame" Unchecked="EnableSame" Grid.Column="19">CZK</ToggleButton>
         </Grid>
 
 
@@ -187,9 +187,9 @@
             <ToggleButton Content="MKD" Grid.Column="14" Checked="DisableButtons" Unchecked="EnableButtons"/>
             <ToggleButton Content="RON" Grid.Column="15" Checked="DisableButtons" Unchecked="EnableButtons"/>
             <ToggleButton Content="KRW" Grid.Column="16" Checked="DisableButtons" Unchecked="EnableButtons"/>
-            <ToggleButton Content="B18" Grid.Column="17" Checked="DisableButtons" Unchecked="EnableButtons"/>
-            <ToggleButton Content="B19" Grid.Column="18" Checked="DisableButtons" Unchecked="EnableButtons"/>
-            <ToggleButton Content="B20" Grid.Column="19" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="BRL" Grid.Column="17" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="HKD" Grid.Column="18" Checked="DisableButtons" Unchecked="EnableButtons"/>
+            <ToggleButton Content="CZK" Grid.Column="19" Checked="DisableButtons" Unchecked="EnableButtons"/>
         </Grid>
 
         
