@@ -42,3 +42,27 @@ C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGr
 C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.CopyComplete
 C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Igor\Desktop\interakcija\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\KursnaListaGrafikon.exe.config
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.exe
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.pdb
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\KursnaListaGrafikon.exe
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\KursnaListaGrafikon.pdb
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.dll
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.Wpf.dll
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.pdb
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.xml
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.Wpf.pdb
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\LiveCharts.Wpf.xml
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csprojResolveAssemblyReference.cache
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\MainWindow.g.cs
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\TableWindow.g.cs
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\App.g.cs
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon_MarkupCompile.cache
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon_MarkupCompile.lref
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\MainWindow.baml
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\TableWindow.baml
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.g.resources
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.Properties.Resources.resources
+D:\Documents\Fakultet\Semestar_3.2\Interakcija Čovjek Računar\projekat1-2022\HCI-Tim26-P1\KursnaListaGrafikon\KursnaListaGrafikon\obj\Debug\KursnaListaGrafikon.csproj.GenerateResource.Cache
