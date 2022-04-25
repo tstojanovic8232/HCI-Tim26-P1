@@ -23,9 +23,9 @@ namespace KursnaListaGrafikon.Resources
         {
             atributi = new Dictionary<string, string>();
             atributi.Add("open", "1. open");
-            atributi.Add("close", "2. close");
-            atributi.Add("high", "3. high");
-            atributi.Add("low", "4. low");
+            atributi.Add("high", "2. high");
+            atributi.Add("low", "3. low");
+            atributi.Add("close", "4. close");
             periodi = new Dictionary<string, string>();
             periodi.Add("Intraday", "FX_INTRADAY");
             periodi.Add("Daily", "FX_DAILY");
@@ -41,7 +41,7 @@ namespace KursnaListaGrafikon.Resources
         {
             try
             {
-                const string apiKey = "NCNMGBNZAS4KV5D2";
+                const string apiKey = "M4HJM8TSKJCPJ1WA";
                 string query = null;
                 if (interval != "")
                 {
@@ -72,9 +72,9 @@ namespace KursnaListaGrafikon.Resources
                         ohlc_vrednosti.Add(double.Parse(j.Value));
                     }
                     open = ohlc_vrednosti[0];
-                    close = ohlc_vrednosti[1];
-                    high = ohlc_vrednosti[2];
-                    low = ohlc_vrednosti[3];
+                    close = ohlc_vrednosti[3];
+                    high = ohlc_vrednosti[1];
+                    low = ohlc_vrednosti[2];
                     OhlcPoint val = new OhlcPoint(open, high, low, close);
                     labele.Add(i.Key);
                     vrednosti.Add(val);

@@ -23,9 +23,9 @@ namespace KursnaListaGrafikon.Resources
         {
             atributi = new Dictionary<string, string>();
             atributi.Add("open","1. open");
-            atributi.Add("close", "2. close");
-            atributi.Add("high", "3. high");
-            atributi.Add("low", "4. low");
+            atributi.Add("high", "2. high");
+            atributi.Add("low", "3. low");
+            atributi.Add("close", "4. close");
             periodi = new Dictionary<string, string>();
             periodi.Add("Intraday", "FX_INTRADAY");
             periodi.Add("Daily", "FX_DAILY");
@@ -56,9 +56,12 @@ namespace KursnaListaGrafikon.Resources
             dynamic lista = pod[$"Time Series FX ({kljuc})"];
             ChartValues<double> vrednosti = new ChartValues<double>();
 
+           
             foreach (KeyValuePair<string, dynamic> i in lista)
             {
-                double val = Double.Parse(i.Value[atributi[atribut]]);
+                
+                string key = atributi[atribut];
+                double val = Double.Parse(i.Value[key]);
                 labele.Add(i.Key);
                 vrednosti.Add(val);
             }
