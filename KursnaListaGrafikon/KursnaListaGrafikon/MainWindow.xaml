@@ -39,7 +39,7 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="#e9d9d1" />
             <Setter Property="FontFamily" Value="Garamond" />
-            <Setter Property="Margin" Value="10" />
+            <Setter Property="Margin" Value="5" />
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
                     <Setter Property="Background" Value="#e9d9d1"/>
@@ -53,8 +53,8 @@
         <!-- Style za RadioButton Group -->
         <Style TargetType="StackPanel" x:Key="RBGroup">
             <Setter Property="Orientation" Value="Vertical" />
-            <Setter Property="VerticalAlignment" Value="Bottom" />
-            <Setter Property="Margin" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Margin" Value="10" />
         </Style>
 
         <!-- Style za TextBlock -->
@@ -63,6 +63,7 @@
             <Setter Property="Foreground" Value="#e9d9d1" />
             <Setter Property="FontFamily" Value="Garamond" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="5"/>
         </Style>
 
         <!-- Style za Button -->
@@ -195,45 +196,42 @@
 
         <Grid DockPanel.Dock="Left">
             <Grid.RowDefinitions>
-                <RowDefinition Height="6*"></RowDefinition>
                 <RowDefinition Height="5*"></RowDefinition>
-                <RowDefinition Height="18*"></RowDefinition>
+                <RowDefinition Height="25*"></RowDefinition>
                 <RowDefinition Height="5*"></RowDefinition>
-                <RowDefinition Height="18*"></RowDefinition>
+                <RowDefinition Height="25*"></RowDefinition>
                 <RowDefinition Height="5*"></RowDefinition>
-                <RowDefinition Height="18*"></RowDefinition>
+                <RowDefinition Height="25*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
 
-            <TextBlock />
-
-            <TextBlock Text="Izaberi atribut:" Grid.Row="1"/>
+            <TextBlock Text="Izaberi atribut:"/>
 
             <!-- RadioButton grupa za atribut (open, high, low, close) -->
-            <StackPanel Name="atributi" Style="{StaticResource RBGroup}" Grid.Row="2">
+            <StackPanel Name="atributi" Style="{StaticResource RBGroup}" Grid.Row="1">
                 <RadioButton Content="open" Checked="Attribute_Checked"/>
                 <RadioButton Content="high" Checked="Attribute_Checked" />
                 <RadioButton Content="low" Checked="Attribute_Checked" />
                 <RadioButton Content="close" Checked="Attribute_Checked" />
             </StackPanel>
 
-            <TextBlock Text="Izaberi period:" Grid.Row="3"/>
+            <TextBlock Text="Izaberi period:" Grid.Row="2"/>
 
             <!-- RadioButton grupa za period (intraday, daily, weekly, monthly) -->
-            <StackPanel Name="periodi" Style="{StaticResource RBGroup}" Grid.Row="4">
+            <StackPanel Name="periodi" Style="{StaticResource RBGroup}" Grid.Row="3">
                 <RadioButton Content="Intraday" Checked="Intraday_Checked" Unchecked="Intraday_Unchecked"/>
                 <RadioButton Content="Daily" Checked="Period_Checked" />
                 <RadioButton Content="Weekly" Checked="Period_Checked" />
                 <RadioButton Content="Monthly" Checked="Period_Checked" />
             </StackPanel>
 
-            <TextBlock x:Name="intervalText" Text="Izaberi interval:" Visibility="Hidden" Grid.Row="5"/>
+            <TextBlock x:Name="intervalText" Text="Izaberi interval:" Visibility="Hidden" Grid.Row="4"/>
 
             <!-- RadioButton grupa za interval (1min, 5min, 15min, 30min) -->
-            <StackPanel Name="intervali" Style="{StaticResource RBGroup}" Grid.Row="6">
+            <StackPanel Name="intervali" Style="{StaticResource RBGroup}" Grid.Row="5">
                 <RadioButton Content="1min" Visibility="Hidden" Checked="Interval_Checked"/>
                 <RadioButton Content="5min" Visibility="Hidden" Checked="Interval_Checked"/>
                 <RadioButton Content="15min" Visibility="Hidden" Checked="Interval_Checked"/>
@@ -289,12 +287,12 @@
             </Grid.RowDefinitions>
             
             <!-- Linijski grafikon -->
-            <lvc:CartesianChart Series="{Binding Path=LinijskiGrafikon.podaci}" LegendLocation="None" Grid.Row="1">
+            <lvc:CartesianChart Series="{Binding Path=linijski.podaci}" LegendLocation="None" Grid.Row="1">
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=LinijskiGrafikon.YFormatter}"></lvc:Axis>
+                    <lvc:Axis Title="Kurs" LabelFormatter="{Binding Path=linijski.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Vreme" Labels="{Binding Path=LinijskiGrafikon.Labels}"></lvc:Axis>
+                    <lvc:Axis Title="Vreme" Labels="{Binding Path=linijski.Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         
