@@ -250,8 +250,6 @@
 
             <!-- Dugme za iscrtavanje -->
             <Button Content="Iscrtaj"  
-                    IsEnabled="False"
-                    MouseEnter="CheckAllControls"
                     HorizontalAlignment="Right"
                     Click="NacrtajGrafikon"/>
             
